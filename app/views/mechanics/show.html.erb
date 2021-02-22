@@ -17,7 +17,7 @@
 
 <section class="mechanic_rides" id="add_ride">
   <h2>Add a ride to workload:</h2>
-  <%= form_with(url: "/mechanics/#{@mechanic.id}", method: "post", local: true) do  |form| %>
+  <%= form_with(url: "/mechanics/#{@mechanic.id}", method: "patch", local: true) do  |form| %>
     <%= form.label :ride_id %>
     <%= form.text_field :ride_id %><br>
     <%= form.submit "Submit" %>
