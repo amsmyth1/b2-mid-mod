@@ -7,6 +7,7 @@ RSpec.describe "mechanic's show page", type: :feature do
     @nitro = Ride.create(name: "Nitro", thrill_rating: 8, open: true)
     @toro = Ride.create(name: "El Toro", thrill_rating: 6, open: true)
     @batman = Ride.create(name: "Batman The Ride", thrill_rating: 7, open: true)
+    @teacups = Ride.create(name: "Tea Time", thrill_rating: 3, open: true)
 
     @jane.rides << @kingda_ka
     @jane.rides << @nitro
@@ -34,10 +35,36 @@ RSpec.describe "mechanic's show page", type: :feature do
     it "lists all rides by most thrilling first" do
       visit "/mechanics/#{@jane.id}"
 
-      within ".mechanic_rides" do
+      within ".mechanic_rides#current_workload" do
         expect(@nitro.name).to appear_before(@batman.name)
         expect(@nitro.name).to appear_before(@toro.name)
         expect(@batman.name).to appear_before(@toro.name)
+      end
+    end
+  end
+
+  describe "can add a ride to a mechanic" do
+    it "can display a form to add a ride" do
+      visit "/mechanics/#{@jane.id}"
+
+      within ".mechanic_rides#add_ride" do
+        expect(page).to have_content("Add a ride to workload")
+        page.find_button("Submit")
+      end
+    end
+
+    it "can fill in the form to add a ride" do
+      visit "/mechanics/#{@jane.id}"
+
+      fill_in :ride_id, with: "#{@teacups.id}"
+      click_button("Submit")
+
+      within ".mechanic_rides#current_workload" do
+        expect(@nitro.name).to appear_before(@batman.name)
+        expect(@nitro.name).to appear_before(@toro.name)
+        expect(@batman.name).to appear_before(@toro.name)
+        expect(@batman.name).to appear_before(@teacups.name)
+        expect(@toro.name).to appear_before(@teacups.name)
       end
     end
   end

@@ -7,10 +7,19 @@
   <p>Years Experience: <%= @mechanic.years_experience %></p>
 </section>
 
-<section class="mechanic_rides">
+<section class="mechanic_rides" id="current_workload">
   <h4>Current Rides Working On</h4>
   <% @rides.each do |ride| %>
   <%= ride.name %>
   <br>
   <% end %>
+</section>
+
+<section class="mechanic_rides" id="add_ride">
+  <h2>Add a ride to workload:</h2>
+  <%= form_with(url: "/mechanics/#{@mechanic.id}", method: "post", local: true) do  |form| %>
+    <%= form.label :ride_id %>
+    <%= form.text_field :ride_id %><br>
+    <%= form.submit "Submit" %>
+  <% end  %>
 </section>
