@@ -1,0 +1,22 @@
+<h1><%= @main_park.name %></h1>
+
+<section class="park_info">
+  <h4>Amusement Park Information</h4>
+  <p>Name: <%= @main_park.name %></p>
+  <p>Admission Proce: <%= number_to_currency(@main_park.price) %></p>
+</section>
+
+<section class="park_rides">
+  <h4>Current Rides Operating</h4>
+  <ol>
+  <% @rides.each do |ride| %>
+  <li><%= ride.name %></li>
+  <br>
+  <% end %>
+</ol>
+</section>
+
+<section class="thrill rating">
+  <h4>Average Thrill Rating</h4>
+  <p><%= @average_thrill %></p>
+</section>

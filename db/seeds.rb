@@ -10,6 +10,9 @@ RideMechanic.destroy_all
 Ride.destroy_all
 Mechanic.destroy_all
 
+great_adventure = AmusementPark.create!(name: "Six Flags: Great Adventure", price: 50)
+
+
 jane = Mechanic.create(name: "Jane Goodwin", years_experience: 10)
 jack = Mechanic.create(name: "Jack Yarn", years_experience: 8)
 mike = Mechanic.create(name: "Mike Bigalo", years_experience: 5)
@@ -17,10 +20,10 @@ meg = Mechanic.create(name: "Meg Shell", years_experience: 15)
 bob = Mechanic.create(name: "Bob Bobberan", years_experience: 30)
 betty = Mechanic.create(name: "Betty Sweaty", years_experience: 1)
 
-kingda_ka = Ride.create(name: "Kingda Ka", thrill_rating: 10, open: false)
-nitro = Ride.create(name: "Nitro", thrill_rating: 8, open: true)
-toro = Ride.create(name: "El Toro", thrill_rating: 6, open: true)
-batman = Ride.create(name: "Batman The Ride", thrill_rating: 7, open: true)
+kingda_ka = great_adventure.rides.create(name: "Kingda Ka", thrill_rating: 10, open: false)
+nitro = great_adventure.rides.create(name: "Nitro", thrill_rating: 8, open: true)
+toro = great_adventure.rides.create(name: "El Toro", thrill_rating: 6, open: true)
+batman = great_adventure.rides.create(name: "Batman The Ride", thrill_rating: 7, open: true)
 
 jane.rides << kingda_ka
 jane.rides << nitro
