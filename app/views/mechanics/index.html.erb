@@ -2,7 +2,7 @@
 
 <section class="mechanics_info" id="basics">
 <% @mechanics.each do |mechanic| %>
-  <a href="/mechanics"><%= mechanic.name %></a>
+  <a href="/mechanics/<%= mechanic.id %>"><%= mechanic.name %></a>
   <p>Years experience: <%= mechanic.years_experience %></p>
 <% end  %>
 </section>
