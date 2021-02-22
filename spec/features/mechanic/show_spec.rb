@@ -35,10 +35,10 @@ RSpec.describe "mechanic's show page", type: :feature do
       visit "/mechanics/#{@jane.id}"
 
       within ".mechanic_rides" do
-        expect(@nitro.name).to_appear before(@batman.name)
-        expect(@nitro.name).to_appear before(@toro.name)
-        expect(@batman.name).to_appear before(@toro.name)
-      end 
+        expect(@nitro.name).to appear_before(@batman.name)
+        expect(@nitro.name).to appear_before(@toro.name)
+        expect(@batman.name).to appear_before(@toro.name)
+      end
     end
   end
 end
