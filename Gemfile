@@ -36,11 +36,13 @@ gem 'bootsnap', '>= 1.1.0', require: false
 
 group :development, :test do
   gem 'rspec-rails'
+  gem 'rspec-pride'
   gem 'capybara'
   gem 'launchy'
   gem 'pry'
   gem 'simplecov'
   gem 'shoulda-matchers', '~> 3.1'
+  gem 'orderly'
 end
 
 group :development do
