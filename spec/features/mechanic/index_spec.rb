@@ -17,19 +17,19 @@ RSpec.describe "mechanic's index page", type: :feature do
       visit "/mechanics"
       expect(page).to have_content("All Mechanics")
 
-      within ".mechanics_info#basic" do
+      within ".mechanics_info#basics" do
         expect(page).to have_content (@jane.name)
         expect(page).to have_content (@jack.name)
         expect(page).to have_content (@mike.name)
         expect(page).to have_content (@meg.name)
         expect(page).to have_content (@bob.name)
         expect(page).to have_content (@betty.name)
-        expect(page).to have_content (@jane.experience)
-        expect(page).to have_content (@jack.experience)
-        expect(page).to have_content (@mike.experience)
-        expect(page).to have_content (@meg.experience)
-        expect(page).to have_content (@bob.experience)
-        expect(page).to have_content (@betty.experience)
+        expect(page).to have_content (@jane.years_experience)
+        expect(page).to have_content (@jack.years_experience)
+        expect(page).to have_content (@mike.years_experience)
+        expect(page).to have_content (@meg.years_experience)
+        expect(page).to have_content (@bob.years_experience)
+        expect(page).to have_content (@betty.years_experience)
       end
     end
 
