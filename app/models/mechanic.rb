@@ -4,5 +4,4 @@ class Mechanic < ApplicationRecord
   belongs_to :amusement_park
 
   scope :average_years_experience, -> {average(:years_experience)}
-
 end
